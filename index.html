@@ -46,7 +46,7 @@ h1{font-size:clamp(30px,6vw,46px);line-height:1.15;margin:6px 0 10px;font-weight
 .chip.he{background:var(--ok-soft);border-color:transparent;color:var(--ok)}
 
 nav.tabs{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-nav.tabs .wrap{display:flex;gap:6px;overflow-x:auto;padding-top:10px;padding-bottom:10px;scrollbar-width:none}
+nav.tabs .wrap{display:flex;flex-wrap:wrap;gap:6px;padding-top:10px;padding-bottom:10px}
 nav.tabs a{flex:0 0 auto;text-decoration:none;color:var(--ink);font-weight:500;font-size:15px;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface)}
 nav.tabs a:hover{border-color:var(--accent)}
 
@@ -151,10 +151,10 @@ footer a{color:var(--muted)}
 
 <nav class="tabs" aria-label="ניווט">
   <div class="wrap">
-    <a href="#summary">בשורה התחתונה</a>
+    <a href="#summary">סיכום</a>
     <a href="#ai">AI Engineer</a>
     <a href="#cyber">סייבר</a>
-    <a href="#hebrew">איך לומדים בעברית</a>
+    <a href="#hebrew">לימוד בעברית</a>
   </div>
 </nav>
 
