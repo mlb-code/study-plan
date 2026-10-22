@@ -2,10 +2,10 @@
 <html lang="he" dir="rtl">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <title>תוכנית לימודים AI וסייבר</title>
-<meta name="description" content="השלמה לסילבוסים של AI Engineers ו-Cyber Expert דרך קורסים ב-Udemy: זול, קצר, עם כתוביות בעברית.">
+<meta name="description" content="השלמה לשלושה סילבוסים של העברית (AI Engineers, Cyber Expert, אסטרטגיית AI למנהלים) דרך קורסים ב-Udemy: זול, קצר, עם כתוביות בעברית.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -13,138 +13,174 @@
 :root{
   --bg:#f6f5f1; --surface:#ffffff; --surface-2:#faf9f6; --ink:#1c1b1f; --muted:#5d5b66; --line:#e3e0d8;
   --accent:#4f3fd1; --accent-ink:#ffffff; --accent-soft:#ece9ff;
-  --ok:#17693d; --ok-soft:#e1f3e8; --warn:#8a5a00; --warn-soft:#fcf0d2; --no:#a8261b; --no-soft:#fbe5e2;
+  --ok:#17693d; --ok-soft:#e1f3e8; --warn:#8a5a00; --warn-soft:#fcf0d2; --no:#a8261b; --no-soft:#fbe5e2; --na:#5d5b66; --na-soft:#ecebe7;
   --shadow:0 1px 2px rgba(20,18,30,.06),0 4px 16px rgba(20,18,30,.05);
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
     --bg:#131217; --surface:#1c1b22; --surface-2:#22212a; --ink:#ecebf2; --muted:#a6a3b3; --line:#34323e;
     --accent:#9d92ff; --accent-ink:#14121c; --accent-soft:#2a2550;
-    --ok:#6fd49b; --ok-soft:#173526; --warn:#f0c062; --warn-soft:#3a2e12; --no:#ff8b80; --no-soft:#3d1a17;
+    --ok:#6fd49b; --ok-soft:#173526; --warn:#f0c062; --warn-soft:#3a2e12; --no:#ff8b80; --no-soft:#3d1a17; --na:#a6a3b3; --na-soft:#2a2932;
     --shadow:0 1px 2px rgba(0,0,0,.4);
   }
 }
 :root[data-theme="dark"]{
   --bg:#131217; --surface:#1c1b22; --surface-2:#22212a; --ink:#ecebf2; --muted:#a6a3b3; --line:#34323e;
   --accent:#9d92ff; --accent-ink:#14121c; --accent-soft:#2a2550;
-  --ok:#6fd49b; --ok-soft:#173526; --warn:#f0c062; --warn-soft:#3a2e12; --no:#ff8b80; --no-soft:#3d1a17;
+  --ok:#6fd49b; --ok-soft:#173526; --warn:#f0c062; --warn-soft:#3a2e12; --no:#ff8b80; --no-soft:#3d1a17; --na:#a6a3b3; --na-soft:#2a2932;
   --shadow:0 1px 2px rgba(0,0,0,.4);
 }
 *{box-sizing:border-box}
-html{overflow-x:hidden;overflow-x:clip;scroll-behavior:smooth;scroll-padding-top:72px}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:"Heebo",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-size:17px;line-height:1.65;padding-bottom:96px}
+html{overflow-x:hidden;overflow-x:clip;scroll-behavior:smooth;scroll-padding-top:70px;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Heebo",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;font-size:17px;line-height:1.65;padding-bottom:calc(84px + env(safe-area-inset-bottom))}
 a{color:var(--accent)}
+button{font:inherit;color:inherit}
 .wrap{max-width:980px;margin:0 auto;padding:0 16px}
 .ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
 
-header.top{padding:40px 0 20px}
-.kicker{font-size:14px;color:var(--muted);font-weight:500;letter-spacing:.2px}
+header.top{padding:36px 0 18px}
+.kicker{font-size:14px;color:var(--muted);font-weight:500}
 h1{font-size:clamp(30px,6vw,46px);line-height:1.15;margin:6px 0 10px;font-weight:800}
-.lead{font-size:19px;color:var(--muted);margin:0 0 18px;max-width:720px}
+.lead{font-size:19px;color:var(--muted);margin:0 0 16px;max-width:720px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:500;padding:5px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--line)}
 .chip.he{background:var(--ok-soft);border-color:transparent;color:var(--ok)}
 
-nav.tabs{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-nav.tabs .wrap{display:flex;flex-wrap:wrap;gap:6px;padding-top:10px;padding-bottom:10px}
-nav.tabs a{flex:0 0 auto;text-decoration:none;color:var(--ink);font-weight:500;font-size:15px;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface)}
-nav.tabs a:hover{border-color:var(--accent)}
+nav.tabs{position:sticky;top:0;z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+nav.tabs .wrap{display:flex;gap:6px;padding-top:9px;padding-bottom:9px}
+nav.tabs a{flex:0 0 auto;text-align:center;text-decoration:none;color:var(--ink);font-weight:700;font-size:15px;padding:7px 16px;border-radius:999px;border:1px solid var(--line);background:var(--surface);white-space:nowrap}
+nav.tabs a[aria-current="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
 
-section{padding:36px 0 8px}
+section{padding:34px 0 6px}
 h2{font-size:clamp(24px,4.5vw,32px);margin:0 0 6px;font-weight:800;line-height:1.2}
-h3{font-size:20px;margin:28px 0 10px;font-weight:700}
-.sub{color:var(--muted);margin:0 0 18px}
+h3{font-size:20px;margin:26px 0 10px;font-weight:700}
+.sub{color:var(--muted);margin:0 0 16px}
 
 .card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow)}
-.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
 .note{background:var(--accent-soft);border-radius:14px;padding:14px 16px;margin:14px 0}
-.note b{color:var(--ink)}
 
-.verdict .big{font-size:28px;font-weight:800;line-height:1.1}
+.verdict .big{font-size:28px;font-weight:800;line-height:1.1;margin-top:2px}
 .verdict .meta{color:var(--muted);font-size:15px;margin-top:4px}
 .verdict ul{margin:10px 0 0;padding-inline-start:20px}
-.verdict li{margin:2px 0}
+.verdict a.more{display:inline-block;margin-top:10px;font-weight:700;text-decoration:none;font-size:15px}
+
+/* collapsible blocks */
+details.fold{background:var(--surface);border:1px solid var(--line);border-radius:14px;margin:10px 0}
+details.fold>summary{list-style:none;cursor:pointer;padding:13px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;font-weight:700}
+details.fold>summary::-webkit-details-marker{display:none}
+details.fold>summary::after{content:"";width:10px;height:10px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg);margin-top:-4px;flex:0 0 auto;transition:transform .2s}
+details.fold[open]>summary::after{transform:rotate(225deg);margin-top:4px}
+details.fold>summary .counts{display:flex;gap:6px;flex-wrap:wrap;margin-inline-start:auto}
+details.fold .inner{padding:0 12px 12px}
 
 /* module map */
 .mods{display:flex;flex-direction:column;gap:8px}
-.mod{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;align-items:start;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
-.mod .st{grid-row:span 2;font-size:13px;font-weight:700;padding:3px 10px;border-radius:999px;white-space:nowrap;margin-top:2px}
-.st.ok{background:var(--ok-soft);color:var(--ok)} .st.part{background:var(--warn-soft);color:var(--warn)} .st.no{background:var(--no-soft);color:var(--no)}
+.mod{display:grid;grid-template-columns:auto 1fr;gap:2px 12px;align-items:start;background:var(--surface-2);border:1px solid var(--line);border-radius:12px;padding:11px 13px}
+.st{font-size:13px;font-weight:700;padding:3px 10px;border-radius:999px;white-space:nowrap}
+.mod .st{grid-row:span 2;margin-top:2px}
+.st.ok{background:var(--ok-soft);color:var(--ok)} .st.part{background:var(--warn-soft);color:var(--warn)} .st.no{background:var(--no-soft);color:var(--no)} .st.na{background:var(--na-soft);color:var(--na)}
 .mod .name{font-weight:700}
 .mod .how{color:var(--muted);font-size:15px}
 
 /* plans */
 .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin:8px 0 6px}
-.plan{border:2px solid var(--line);border-radius:14px;padding:14px 16px;background:var(--surface)}
+.plan{border:2px solid var(--line);border-radius:14px;padding:14px 16px;background:var(--surface);display:flex;flex-direction:column}
 .plan.rec{border-color:var(--accent)}
 .plan .tag{font-size:13px;font-weight:700;color:var(--accent)}
 .plan .t{font-weight:800;font-size:19px;margin:2px 0}
 .plan .sum{font-weight:700}
-.plan .what{color:var(--muted);font-size:15px;margin:4px 0 10px}
-.btn{font:inherit;font-size:15px;font-weight:700;cursor:pointer;border-radius:10px;padding:8px 14px;border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink)}
+.plan .what{color:var(--muted);font-size:15px;margin:4px 0 12px;flex:1}
+.btn{font-size:15px;font-weight:700;cursor:pointer;border-radius:10px;padding:9px 14px;border:1px solid var(--accent);background:var(--accent);color:var(--accent-ink)}
 .btn.ghost{background:transparent;color:var(--accent)}
+.plan .btn{align-self:flex-start}
 
 /* course cards */
-.courses{display:flex;flex-direction:column;gap:14px;margin-top:14px}
-.course{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow);transition:border-color .15s}
+.courses{display:flex;flex-direction:column;gap:14px;margin-top:12px}
+.course{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
 .course.picked{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),var(--shadow)}
-.course .head{display:flex;gap:12px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+.course .head{display:flex;gap:12px;align-items:flex-start;justify-content:space-between}
 .course .num{font-size:13px;font-weight:700;color:var(--muted)}
 .course .title{font-size:20px;font-weight:800;line-height:1.3;margin:2px 0}
 .course .by{color:var(--muted);font-size:15px}
-.pick{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;cursor:pointer;user-select:none;border:1px solid var(--line);border-radius:10px;padding:6px 12px;background:var(--surface-2)}
-.pick input{width:18px;height:18px;accent-color:var(--accent);margin:0}
-.facts{display:flex;flex-wrap:wrap;gap:6px 14px;margin:12px 0;font-size:15px}
-.facts span{white-space:nowrap}
-.facts .he{color:var(--ok);font-weight:700}
-.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin:6px 0 2px}
+.pick{flex:0 0 auto;display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;cursor:pointer;user-select:none;border:1px solid var(--line);border-radius:10px;padding:7px 12px;background:var(--surface-2)}
+.pick input{width:20px;height:20px;accent-color:var(--accent);margin:0}
+.price{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin:8px 0 2px}
 .price .now{font-size:24px;font-weight:800}
 .price .was{color:var(--muted);text-decoration:line-through}
-.course ul{margin:8px 0;padding-inline-start:20px}
+.price .when{font-size:13px;color:var(--muted)}
+.facts{display:flex;flex-wrap:wrap;gap:4px 14px;margin:8px 0 10px;font-size:15px}
+.facts span{white-space:nowrap}
+.facts .he{color:var(--ok);font-weight:700}
+.course ul{margin:6px 0;padding-inline-start:20px}
 .course li{margin:2px 0}
 .closes{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
 .closes span{font-size:13px;font-weight:700;background:var(--accent-soft);color:var(--ink);padding:3px 10px;border-radius:999px}
 .tip{font-size:15px;background:var(--surface-2);border-inline-start:3px solid var(--accent);padding:8px 12px;border-radius:8px;margin:10px 0}
 .course a.go{display:inline-block;margin-top:6px;font-weight:700;text-decoration:none}
-.course a.go:hover{text-decoration:underline}
 
-.rejected{font-size:15px;color:var(--muted)}
-.rejected li{margin:4px 0}
-
+.rejected{font-size:15px;color:var(--muted);margin:0;padding-inline-start:20px}
+.rejected li{margin:6px 0}
 ol.steps{padding-inline-start:22px}
 ol.steps li{margin:6px 0}
+ul.tips{padding-inline-start:20px}
+ul.tips li{margin:6px 0}
 
-footer{padding:28px 0 20px;color:var(--muted);font-size:14px}
-footer a{color:var(--muted)}
+footer{padding:26px 0 18px;color:var(--muted);font-size:14px}
+
+/* slider controls (shown on phones only) */
+.slider-nav{display:none;align-items:center;justify-content:space-between;gap:8px;margin:8px 0 2px}
+.slider-nav .arrow{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--surface);font-size:20px;line-height:1;cursor:pointer;display:grid;place-items:center;flex:0 0 auto}
+.slider-nav .arrow:disabled{opacity:.35;cursor:default}
+.slider-nav .mid{flex:1;display:flex;flex-direction:column;align-items:center;gap:0}
+.dots{display:flex;justify-content:center}
+.dots button{width:22px;height:22px;border:0;background:none;padding:0;cursor:pointer;display:grid;place-items:center}
+.dots button::after{content:"";width:8px;height:8px;border-radius:4px;background:var(--line);transition:width .2s,background .2s}
+.dots button[aria-current="true"]::after{width:20px;background:var(--accent)}
+.slider-nav .count{font-size:13px;color:var(--muted)}
+.swipe-hint{display:none;font-size:13px;color:var(--muted);margin:0 0 4px}
 
 /* selection bar */
-.bar{position:fixed;inset-inline:0;bottom:0;z-index:10;background:var(--surface);border-top:1px solid var(--line);box-shadow:0 -4px 20px rgba(0,0,0,.08)}
-.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:12px;padding-bottom:12px;flex-wrap:wrap}
-.bar .label{font-size:14px;color:var(--muted)}
-.bar .vals{display:flex;gap:16px;flex-wrap:wrap;font-weight:800;font-size:18px}
-.bar .vals small{font-weight:500;font-size:13px;color:var(--muted);margin-inline-start:4px}
+.bar{position:fixed;inset-inline:0;bottom:0;z-index:30;background:var(--surface);border-top:1px solid var(--line);box-shadow:0 -4px 20px rgba(0,0,0,.08);padding-bottom:env(safe-area-inset-bottom)}
+.bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-top:10px;padding-bottom:10px}
+.bar .label{font-size:13px;color:var(--muted)}
+.bar .vals{display:flex;gap:14px;font-weight:800;font-size:18px;white-space:nowrap}
+.bar .vals small{font-weight:500;font-size:13px;color:var(--muted);margin-inline-start:3px}
 
-@media (max-width:560px){
+@media (max-width:760px){
   body{font-size:16px}
+  header.top{padding:24px 0 14px}
+  .lead{font-size:17px}
+  nav.tabs .wrap{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;padding-top:8px;padding-bottom:8px}
+  nav.tabs a{padding:7px 2px;font-size:14px}
+  section{padding:26px 0 4px}
+  .slider{display:flex !important;flex-direction:row !important;flex-wrap:nowrap !important;gap:12px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;overscroll-behavior-x:contain;margin-inline:-16px;padding:4px 16px 8px;scroll-padding-inline:16px}
+  .slider::-webkit-scrollbar{display:none}
+  .slider>*{flex:0 0 86%;scroll-snap-align:start;scroll-snap-stop:always;margin:0;min-width:0}
+  .slider-nav,.swipe-hint{display:flex}
   .course,.card{padding:15px}
   .course .title{font-size:18px}
+  .course .head{flex-direction:column;gap:8px}
+  .pick{align-self:flex-start}
   .mod{grid-template-columns:1fr}
   .mod .st{grid-row:auto;justify-self:start}
+  .bar .label{display:none}
   .bar .vals{font-size:16px;gap:12px}
+  .bar .btn{padding:7px 12px;font-size:14px}
 }
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
 
 <header class="top">
   <div class="wrap">
-    <div class="kicker">מאיר ודרור · נבדק ב-21.10.2026</div>
+    <div class="kicker">מאיר ודרור · עודכן ב-22.10.2026</div>
     <h1>תוכנית לימודים: AI וסייבר</h1>
-    <p class="lead">איך מכסים את שני הסילבוסים של האוניברסיטה העברית (AI Engineers ו-Cyber Expert) עם קורסים ב-Udemy: זול, כמה שיותר קצר, ועם כתוביות בעברית.</p>
+    <p class="lead">איך מכסים שלושה סילבוסים של האוניברסיטה העברית עם קורסים ב-Udemy: זול, קצר ככל האפשר, ועם כתוביות בעברית.</p>
     <div class="chips">
       <span class="chip he">✓ בכל הקורסים המומלצים יש כתוביות בעברית</span>
       <span class="chip">מחיר לאדם · כל אחד קונה בחשבון שלו</span>
-      <span class="chip">המחירים נבדקו במבצע</span>
     </div>
   </div>
 </header>
@@ -152,9 +188,10 @@ footer a{color:var(--muted)}
 <nav class="tabs" aria-label="ניווט">
   <div class="wrap">
     <a href="#summary">סיכום</a>
-    <a href="#ai">AI Engineer</a>
+    <a href="#ai">AI</a>
     <a href="#cyber">סייבר</a>
-    <a href="#hebrew">לימוד בעברית</a>
+    <a href="#mgr">מנהלים</a>
+    <a href="#hebrew">עברית</a>
   </div>
 </nav>
 
@@ -162,65 +199,81 @@ footer a{color:var(--muted)}
 
 <section id="summary">
   <h2>בשורה התחתונה</h2>
-  <p class="sub">שני מסלולים מומלצים להתחלה. אפשר להרחיב אחר כך.</p>
-  <div class="grid2">
+  <p class="sub">מסלול מומלץ לכל אחד משלושת הסילבוסים.</p>
+  <p class="swipe-hint">מחליקים ימינה ושמאלה ←</p>
+  <div class="grid3 slider">
     <div class="card verdict">
-      <div class="kicker">AI · מסלול מומלץ</div>
+      <div class="kicker">AI Engineer · מסלול מומלץ</div>
       <div class="big">₪99.80</div>
-      <div class="meta">2 קורסים · כ-54 שעות וידאו · כ-11 שבועות בקצב של 5 שעות בשבוע</div>
+      <div class="meta">2 קורסים · כ-54 שעות · כ-11 שבועות</div>
       <ul>
         <li>סוכנים, CrewAI, LangGraph ו-MCP</li>
-        <li>RAG, Hugging Face וכוונון מודלים (QLoRA)</li>
+        <li>RAG, Hugging Face וכוונון מודלים</li>
       </ul>
+      <a class="more" href="#ai">לפרטים ←</a>
     </div>
     <div class="card verdict">
       <div class="kicker">סייבר · מסלול מומלץ</div>
       <div class="big">₪129.80</div>
-      <div class="meta">2 קורסים · כ-31 שעות וידאו · כ-6 שבועות בקצב של 5 שעות בשבוע</div>
+      <div class="meta">2 קורסים · כ-31 שעות · כ-6 שבועות</div>
       <ul>
         <li>יסודות, רשתות, מתקפות, ניהול סיכונים</li>
         <li>תרגול תקיפה מעשי ב-Kali Linux</li>
       </ul>
+      <a class="more" href="#cyber">לפרטים ←</a>
+    </div>
+    <div class="card verdict">
+      <div class="kicker">אסטרטגיית AI למנהלים · מסלול מומלץ</div>
+      <div class="big">₪169.80</div>
+      <div class="meta">2 קורסים · כ-8 שעות · כ-2 שבועות</div>
+      <ul>
+        <li>יסודות ושימוש אחראי ב-AI בעבודה</li>
+        <li>סוכנים ותהליכי עבודה בפועל</li>
+      </ul>
+      <a class="more" href="#mgr">לפרטים ←</a>
     </div>
   </div>
-  <div class="note"><b>שניהם יחד: ₪229.60 לאדם.</b> לשם השוואה, כל קורס באוניברסיטה נמשך חודשים, פעמיים בשבוע בערב. ההבדל: ב-Udemy אין מרצה מלווה ואין תעודה אקדמית, רק תעודת סיום של Udemy.</div>
-  <div class="note"><b>על המחירים:</b> בדקנו ב-21.10.2026, ביום של מבצע. Udemy חוזרת למחירים האלה כל כמה שבועות. לא קונים במחיר המלא (המחיר המחוק).</div>
+  <div class="note"><b>על המחירים:</b> המחירים בחלקים AI וסייבר נבדקו ב-21.10.2026, ביום של מבצע. ב-22.10 המבצע נגמר והמחירים עלו (למשל Security+ קפץ מ-₪69.90 ל-₪449.90). בחלק "מנהלים" המחירים הם של 22.10, בלי מבצע. Udemy עושה מבצעים כל כמה שבועות, אז מחכים למבצע ולא קונים במחיר מלא.</div>
+  <div class="note"><b>מה ההבדל מהאוניברסיטה:</b> ב-Udemy אין מרצה מלווה ואין תעודה אקדמית, רק תעודת סיום של Udemy. בקצב של 5 שעות וידאו בשבוע.</div>
 </section>
 
+<!-- ============ AI ============ -->
 <section id="ai">
   <h2>חלק 1: AI Engineer</h2>
   <p class="sub">הסילבוס המקורי: "AI Engineers", האקדמיה להייטק של העברית, 210 שעות אקדמיות.</p>
 
-  <h3>מה כבר יש ומה חסר</h3>
-  <p class="sub">לפי העבודה המעשית של מאיר עד היום.</p>
-  <div class="mods">
-    <div class="mod"><span class="st ok">יש</span><div class="name">מודול 0 · פייתון, נתונים, פיתוח בעזרת AI</div><div class="how">כבר בשימוש יומיומי. אין צורך בקורס.</div></div>
-    <div class="mod"><span class="st no">חסר</span><div class="name">מודול 1 · למידת מכונה קלאסית</div><div class="how">רגרסיה, עצי החלטה, מדדי דיוק, scikit-learn. נסגר בקורס 3.</div></div>
-    <div class="mod"><span class="st no">חסר</span><div class="name">מודול 2 · למידה עמוקה ומודלי שפה מבפנים</div><div class="how">אימון רשתות ב-PyTorch, Transformers, כוונון (LoRA). נסגר בקורסים 2 ו-4.</div></div>
-    <div class="mod"><span class="st part">חלקי</span><div class="name">מודול 3 · מודלי שפה וסוכנים</div><div class="how">סוכנים שמפעילים כלים כבר יש. חסרים CrewAI, LangGraph, בניית שרת MCP ו-RAG מלא. נסגר בקורסים 1 ו-2.</div></div>
-    <div class="mod"><span class="st part">חלקי</span><div class="name">מודול 4 · פרודקשן</div><div class="how">פריסה לענן כבר יש. חסרים AWS וכלי מעקב ובקרה ייעודיים. נסגר בקורס 5.</div></div>
-  </div>
+  <details class="fold" data-open-desktop>
+    <summary>מה כבר יש ומה חסר <span class="counts"><span class="st ok">1 יש</span><span class="st part">2 חלקי</span><span class="st no">2 חסר</span></span></summary>
+    <div class="inner"><div class="mods">
+      <div class="mod"><span class="st ok">יש</span><div class="name">מודול 0 · פייתון, נתונים, פיתוח בעזרת AI</div><div class="how">כבר בשימוש יומיומי. אין צורך בקורס.</div></div>
+      <div class="mod"><span class="st no">חסר</span><div class="name">מודול 1 · למידת מכונה קלאסית</div><div class="how">רגרסיה, עצי החלטה, מדדי דיוק, scikit-learn. נסגר בקורס 3.</div></div>
+      <div class="mod"><span class="st no">חסר</span><div class="name">מודול 2 · למידה עמוקה ומודלי שפה מבפנים</div><div class="how">אימון רשתות ב-PyTorch, Transformers, כוונון (LoRA). נסגר בקורסים 2 ו-4.</div></div>
+      <div class="mod"><span class="st part">חלקי</span><div class="name">מודול 3 · מודלי שפה וסוכנים</div><div class="how">סוכנים שמפעילים כלים כבר יש. חסרים CrewAI, LangGraph, בניית שרת MCP ו-RAG מלא. נסגר בקורסים 1 ו-2.</div></div>
+      <div class="mod"><span class="st part">חלקי</span><div class="name">מודול 4 · פרודקשן</div><div class="how">פריסה לענן כבר יש. חסרים AWS וכלי מעקב ובקרה ייעודיים. נסגר בקורס 5.</div></div>
+    </div></div>
+  </details>
 
   <h3>בוחרים מסלול</h3>
-  <div class="plans">
+  <div class="plans slider">
     <div class="plan rec">
       <div class="tag">מומלץ להתחלה</div>
       <div class="t">מסלול מינימלי</div>
       <div class="sum">₪99.80 · כ-54 שעות</div>
       <div class="what">קורסים 1 ו-2. סוגר את מודול 3 ואת רוב מודול 2.</div>
-      <button class="btn" data-preset="ai" data-ids="ai1,ai2">לסמן את המסלול הזה</button>
+      <button class="btn" type="button" data-preset="ai" data-ids="ai1,ai2">לסמן את המסלול</button>
     </div>
     <div class="plan">
       <div class="tag">כיסוי כמעט מלא</div>
       <div class="t">מסלול מלא</div>
       <div class="sum">₪339.50 · כ-174 שעות</div>
       <div class="what">כל 5 הקורסים. אפשר לקצר בערך 20 שעות עם הטיפים שבכרטיסים.</div>
-      <button class="btn ghost" data-preset="ai" data-ids="ai1,ai2,ai3,ai4,ai5">לסמן את המסלול הזה</button>
+      <button class="btn ghost" type="button" data-preset="ai" data-ids="ai1,ai2,ai3,ai4,ai5">לסמן את המסלול</button>
     </div>
   </div>
 
-  <h3>הקורסים, לפי סדר הלימוד המומלץ</h3>
-  <div class="courses">
+  <h3>הקורסים, לפי סדר הלימוד</h3>
+  <p class="swipe-hint">5 קורסים · מחליקים ←</p>
+  <div class="courses slider">
 
     <article class="course" data-course="ai1" data-group="ai" data-price="49.90" data-hours="21">
       <div class="head">
@@ -231,15 +284,15 @@ footer a{color:var(--muted)}
         </div>
         <label class="pick"><input type="checkbox"> בחרתי</label>
       </div>
-      <div class="price"><span class="now">₪49.90</span><span class="was">₪79.90</span></div>
-      <div class="facts"><span class="he">✓ כתוביות בעברית</span><span>21 שעות</span><span>4.7★ (50,227 דירוגים)</span><span>412,150 לומדים</span><span>עודכן 9/2026</span></div>
+      <div class="price"><span class="now">₪49.90</span><span class="was">₪79.90</span><span class="when">מבצע 21.10</span></div>
+      <div class="facts"><span class="he">✓ כתוביות בעברית</span><span>21 שעות</span><span>4.7★ (50,227)</span><span>עודכן 9/2026</span></div>
       <ul>
         <li>בונים סוכנים עם OpenAI Agents SDK, CrewAI, LangGraph ו-AutoGen</li>
         <li>שבוע שלם על MCP: איך מחברים כלים חיצוניים לסוכן</li>
-        <li>8 פרויקטים, ביניהם צוות סוכנים למחקר וסוכן ניתוח מניות</li>
+        <li>8 פרויקטים, ביניהם צוות סוכנים למחקר</li>
       </ul>
       <div class="closes"><span>מודול 3.6–3.8</span><span>LangGraph</span><span>CrewAI</span><span>MCP</span></div>
-      <div class="tip">למה ראשון: זה הכי קרוב למה שמאיר כבר עושה, אז מתקדמים מהר ובונים ביטחון.</div>
+      <div class="tip">למה ראשון: הכי קרוב למה שמאיר כבר עושה, אז מתקדמים מהר.</div>
       <a class="go" href="https://www.udemy.com/course/the-complete-agentic-ai-engineering-course/" target="_blank" rel="noopener">לדף הקורס ב-Udemy ←</a>
     </article>
 
@@ -252,38 +305,37 @@ footer a{color:var(--muted)}
         </div>
         <label class="pick"><input type="checkbox"> בחרתי</label>
       </div>
-      <div class="price"><span class="now">₪49.90</span><span class="was">₪309.90</span></div>
-      <div class="facts"><span class="he">✓ כתוביות בעברית</span><span>33 שעות</span><span>4.6★ (43,884 דירוגים)</span><span>361,730 לומדים</span><span>עודכן 9/2026</span></div>
+      <div class="price"><span class="now">₪49.90</span><span class="was">₪309.90</span><span class="when">מבצע 21.10</span></div>
+      <div class="facts"><span class="he">✓ כתוביות בעברית</span><span>33 שעות</span><span>4.6★ (43,884)</span><span>עודכן 9/2026</span></div>
       <ul>
         <li>איך מודל שפה עובד: Transformers, טוקנים, חלון הקשר</li>
         <li>מודלים פתוחים דרך Hugging Face</li>
         <li>RAG ומאגרי וקטורים: בוט שעונה על מסמכי חברה</li>
-        <li>מעבר מלמידת מכונה קלאסית לכוונון מודל, כולל QLoRA</li>
+        <li>כוונון מודל, כולל QLoRA</li>
       </ul>
-      <div class="closes"><span>מודול 2.5–2.8</span><span>מודול 3.1–3.4</span><span>Hugging Face</span><span>RAG</span></div>
-      <div class="tip">הקורס עובד בעיקר עם OpenAI, אבל אפשר להחליף ל-Claude בלי בעיה.</div>
+      <div class="closes"><span>מודול 2.5–2.8</span><span>מודול 3.1–3.4</span><span>RAG</span></div>
+      <div class="tip">הקורס עובד בעיקר עם OpenAI, אבל אפשר להחליף ל-Claude.</div>
       <a class="go" href="https://www.udemy.com/course/llm-engineering-master-ai-and-large-language-models/" target="_blank" rel="noopener">לדף הקורס ב-Udemy ←</a>
     </article>
 
     <article class="course" data-course="ai3" data-group="ai" data-price="139.90" data-hours="49">
       <div class="head">
         <div>
-          <div class="num">קורס 3 · הכי יקר, וסוגר את הפער הכי גדול</div>
+          <div class="num">קורס 3 · סוגר את הפער הכי גדול</div>
           <div class="title"><span class="ltr">Machine Learning A-Z: ML, DL, AI with AWS, Python &amp; R</span></div>
-          <div class="by">Kirill Eremenko · Hadelin de Ponteves · SuperDataScience</div>
+          <div class="by">Kirill Eremenko · Hadelin de Ponteves</div>
         </div>
         <label class="pick"><input type="checkbox"> בחרתי</label>
       </div>
-      <div class="price"><span class="now">₪139.90</span><span class="was">₪799.90</span></div>
-      <div class="facts"><span class="he">✓ כתוביות בעברית</span><span>49 שעות</span><span>4.5★ (206,589 דירוגים)</span><span>1.2 מיליון לומדים</span><span>עודכן 6/2026</span></div>
+      <div class="price"><span class="now">₪139.90</span><span class="was">₪799.90</span><span class="when">מבצע 21.10</span></div>
+      <div class="facts"><span class="he">✓ כתוביות בעברית</span><span>49 שעות</span><span>4.5★ (206,589)</span><span>עודכן 6/2026</span></div>
       <ul>
-        <li>רגרסיה וסיווג: לנבא מספר, או לנבא לאיזו קבוצה משהו שייך</li>
-        <li>עצי החלטה, Random Forest, אשכולות (Clustering)</li>
-        <li>איך בודקים שמודל טוב באמת: חלוקה לאימון ובדיקה, מדדי דיוק</li>
-        <li>scikit-learn, הכלי הסטנדרטי ללמידת מכונה בפייתון</li>
+        <li>רגרסיה וסיווג: לנבא מספר, או לאיזו קבוצה משהו שייך</li>
+        <li>עצי החלטה, Random Forest, אשכולות</li>
+        <li>איך בודקים שמודל טוב באמת: אימון, בדיקה, מדדי דיוק</li>
       </ul>
       <div class="closes"><span>מודול 1 כולו</span><span>scikit-learn</span><span>גם מודול 6 בסייבר</span></div>
-      <div class="tip">הקורס מלמד כל נושא פעמיים, בפייתון וב-R. מדלגים על כל הפרקים שכתוב בהם "in R" וחוסכים הרבה שעות.</div>
+      <div class="tip">כל נושא נלמד פעמיים, בפייתון וב-R. מדלגים על הפרקים שכתוב בהם "in R".</div>
       <a class="go" href="https://www.udemy.com/course/machinelearning/" target="_blank" rel="noopener">לדף הקורס ב-Udemy ←</a>
     </article>
 
@@ -292,19 +344,19 @@ footer a{color:var(--muted)}
         <div>
           <div class="num">קורס 4</div>
           <div class="title"><span class="ltr">PyTorch for Deep Learning Bootcamp</span></div>
-          <div class="by">Andrei Neagoie · Daniel Bourke (Zero To Mastery)</div>
+          <div class="by">Andrei Neagoie · Daniel Bourke</div>
         </div>
         <label class="pick"><input type="checkbox"> בחרתי</label>
       </div>
-      <div class="price"><span class="now">₪49.90</span><span class="was">₪309.90</span></div>
-      <div class="facts"><span class="he">✓ כתוביות בעברית</span><span>52 שעות</span><span>4.6★ (6,458 דירוגים)</span><span>50,715 לומדים</span><span>עודכן 2/2026</span></div>
+      <div class="price"><span class="now">₪49.90</span><span class="was">₪309.90</span><span class="when">מבצע 21.10</span></div>
+      <div class="facts"><span class="he">✓ כתוביות בעברית</span><span>52 שעות</span><span>4.6★ (6,458)</span><span>עודכן 2/2026</span></div>
       <ul>
         <li>מאמנים רשת נוירונים בעצמנו, מאפס</li>
-        <li>זיהוי תמונות (Computer Vision) ועבודה עם נתונים שלנו</li>
-        <li>Transfer Learning: לוקחים מודל קיים ומתאימים אותו</li>
+        <li>זיהוי תמונות ועבודה עם נתונים שלנו</li>
+        <li>Transfer Learning: מתאימים מודל קיים</li>
       </ul>
       <div class="closes"><span>מודול 2.2–2.4</span><span>PyTorch</span></div>
-      <div class="tip">מספיק לסיים את פרק "Transfer Learning", כ-30 שעות. הפרקים שאחריו הם העמקה.</div>
+      <div class="tip">מספיק עד סוף פרק "Transfer Learning", כ-30 שעות.</div>
       <a class="go" href="https://www.udemy.com/course/pytorch-for-deep-learning/" target="_blank" rel="noopener">לדף הקורס ב-Udemy ←</a>
     </article>
 
@@ -317,10 +369,10 @@ footer a{color:var(--muted)}
         </div>
         <label class="pick"><input type="checkbox"> בחרתי</label>
       </div>
-      <div class="price"><span class="now">₪49.90</span><span class="was">₪79.90</span></div>
-      <div class="facts"><span class="he">✓ כתוביות בעברית</span><span>19 שעות</span><span>4.7★ (4,296 דירוגים)</span><span>60,573 לומדים</span><span>עודכן 9/2026</span></div>
+      <div class="price"><span class="now">₪49.90</span><span class="was">₪79.90</span><span class="when">מבצע 21.10</span></div>
+      <div class="facts"><span class="he">✓ כתוביות בעברית</span><span>19 שעות</span><span>4.7★ (4,296)</span><span>עודכן 9/2026</span></div>
       <ul>
-        <li>פריסה ל-AWS (ובקצרה גם GCP, Azure, Vercel)</li>
+        <li>פריסה ל-AWS, ובקצרה גם GCP, Azure ו-Vercel</li>
         <li>מעקב, בקרה וכללי שמירה למערכת שרצה באמת</li>
         <li>פריסה אוטומטית עם Terraform ו-GitHub Actions</li>
       </ul>
@@ -329,48 +381,56 @@ footer a{color:var(--muted)}
     </article>
   </div>
 
-  <h3>מה לא מכוסה</h3>
-  <p class="rejected">גרף ידע עם Neo4j (פרק 3.5). זה פרק קטן, ולא מצאנו קורס מתאים עם עברית.</p>
+  <details class="fold">
+    <summary>מה לא מכוסה</summary>
+    <div class="inner"><ul class="rejected"><li>גרף ידע עם Neo4j (פרק 3.5). פרק קטן, ולא מצאנו קורס מתאים עם עברית.</li></ul></div>
+  </details>
 </section>
 
+<!-- ============ CYBER ============ -->
 <section id="cyber">
   <h2>חלק 2: סייבר</h2>
-  <p class="sub">הסילבוס המקורי: "Cyber Expert", העברית הכשרת מנהלים, כ-4.5 חודשים, פעמיים בשבוע 17:30–21:30.</p>
+  <p class="sub">הסילבוס המקורי: "Cyber Expert", העברית הכשרת מנהלים, כ-4.5 חודשים, פעמיים בשבוע.</p>
 
-  <h3>מה כבר יש ומה חסר</h3>
-  <p class="sub">במערכות של מאיר כבר יש לא מעט אבטחה בצד המגן: הרשאות גישה במסד הנתונים, אימות חתימות, הגבלת קצב, אימות דו-שלבי והגנה מפני prompt injection. מה שחסר הוא התמונה המסודרת וצד התוקף.</p>
-  <div class="mods">
-    <div class="mod"><span class="st no">חסר</span><div class="name">מודול 1 · מבוא, רשתות ומודל OSI</div><div class="how">נסגר בקורס א'.</div></div>
-    <div class="mod"><span class="st no">חסר</span><div class="name">מודול 2 · רשת עמוקה, Darknet, Big Data</div><div class="how">לא מצאנו קורס עם עברית שמכסה את זה.</div></div>
-    <div class="mod"><span class="st part">חלקי</span><div class="name">מודול 3 · משטח תקיפה והדגמות ב-Kali</div><div class="how">צד ההגנה באפליקציות כבר יש. צד התוקף (סריקות, SQL injection, סיסמאות, פישינג) נסגר בקורס ב'.</div></div>
-    <div class="mod"><span class="st part">חלקי</span><div class="name">מודול 4 · מתקפות APT, Kill Chain, MITRE</div><div class="how">חלקית בקורס א' (נוזקות, תגובה לאירועים). העמקה בקורס ג'.</div></div>
-    <div class="mod"><span class="st part">חלקי</span><div class="name">מודול 5 · לוחמת סייבר והנדסה חברתית</div><div class="how">הנדסה חברתית נלמדת בקורסים ב' ו-ג'. מקרי בוחן ממשיים לא.</div></div>
-    <div class="mod"><span class="st part">חלקי</span><div class="name">מודול 6 · AI לסייבר</div><div class="how">החלק של למידת מכונה נסגר בקורס 3 של מסלול ה-AI (Machine Learning A-Z).</div></div>
-    <div class="mod"><span class="st part">חלקי</span><div class="name">מודול 7 · AI מתקדם ו-Deepfake</div><div class="how">פרק קצר בקורס א'. הקורסים הייעודיים לנושא באו בלי עברית.</div></div>
-    <div class="mod"><span class="st part">חלקי</span><div class="name">מודול 8 · אבטחת ענן ו-IoT</div><div class="how">עבודה מעשית בענן כבר יש. התיאוריה נלמדת בקורס ג'.</div></div>
-    <div class="mod"><span class="st part">חלקי</span><div class="name">מודול 9 · ניהול אבטחה בארגון</div><div class="how">ניהול הרשאות כבר יש. ניהול סיכונים ורגולציה נלמדים בקורס א', ולעומק בקורס ג'.</div></div>
-  </div>
+  <details class="fold" data-open-desktop>
+    <summary>מה כבר יש ומה חסר <span class="counts"><span class="st part">7 חלקי</span><span class="st no">2 חסר</span></span></summary>
+    <div class="inner">
+      <p class="sub" style="margin:4px 4px 10px;font-size:15px">במערכות של מאיר כבר יש הרבה אבטחה בצד המגן: הרשאות גישה, אימות חתימות, הגבלת קצב, אימות דו-שלבי. חסרים התמונה המסודרת וצד התוקף.</p>
+      <div class="mods">
+        <div class="mod"><span class="st no">חסר</span><div class="name">מודול 1 · מבוא, רשתות ומודל OSI</div><div class="how">נסגר בקורס א'.</div></div>
+        <div class="mod"><span class="st no">חסר</span><div class="name">מודול 2 · Darknet ו-Big Data</div><div class="how">לא מצאנו קורס עם עברית שמכסה את זה.</div></div>
+        <div class="mod"><span class="st part">חלקי</span><div class="name">מודול 3 · משטח תקיפה והדגמות ב-Kali</div><div class="how">צד ההגנה כבר יש. צד התוקף נסגר בקורס ב'.</div></div>
+        <div class="mod"><span class="st part">חלקי</span><div class="name">מודול 4 · APT, Kill Chain, MITRE</div><div class="how">חלקית בקורס א'. העמקה בקורס ג'.</div></div>
+        <div class="mod"><span class="st part">חלקי</span><div class="name">מודול 5 · לוחמת סייבר והנדסה חברתית</div><div class="how">הנדסה חברתית בקורסים ב' ו-ג'. מקרי בוחן לא.</div></div>
+        <div class="mod"><span class="st part">חלקי</span><div class="name">מודול 6 · AI לסייבר</div><div class="how">החלק של למידת מכונה נסגר בקורס 3 של חלק ה-AI.</div></div>
+        <div class="mod"><span class="st part">חלקי</span><div class="name">מודול 7 · AI מתקדם ו-Deepfake</div><div class="how">פרק קצר בקורס א'.</div></div>
+        <div class="mod"><span class="st part">חלקי</span><div class="name">מודול 8 · אבטחת ענן ו-IoT</div><div class="how">עבודה בענן כבר יש. התיאוריה בקורס ג'.</div></div>
+        <div class="mod"><span class="st part">חלקי</span><div class="name">מודול 9 · ניהול אבטחה בארגון</div><div class="how">ניהול הרשאות כבר יש. סיכונים ורגולציה בקורס א', לעומק בקורס ג'.</div></div>
+      </div>
+    </div>
+  </details>
 
   <h3>בוחרים מסלול</h3>
-  <div class="plans">
+  <div class="plans slider">
     <div class="plan rec">
       <div class="tag">מומלץ: הכי קצר וזול</div>
       <div class="t">מסלול מינימלי</div>
       <div class="sum">₪129.80 · כ-31 שעות</div>
       <div class="what">קורסים א' ו-ב'. תמונה רחבה ועוד תרגול תקיפה מעשי.</div>
-      <button class="btn" data-preset="cyber" data-ids="cy1,cy2">לסמן את המסלול הזה</button>
+      <button class="btn" type="button" data-preset="cyber" data-ids="cy1,cy2">לסמן את המסלול</button>
     </div>
     <div class="plan">
-      <div class="tag">יותר עומק, וגם הכנה להסמכה</div>
+      <div class="tag">יותר עומק, והכנה להסמכה</div>
       <div class="t">מסלול מעמיק</div>
       <div class="sum">₪149.80 · כ-46 שעות</div>
-      <div class="what">קורס ג' במקום קורס א', יחד עם קורס ב'. מכין למבחן ההסמכה Security+.</div>
-      <button class="btn ghost" data-preset="cyber" data-ids="cy2,cy3">לסמן את המסלול הזה</button>
+      <div class="what">קורס ג' במקום קורס א', יחד עם קורס ב'. מכין למבחן Security+.</div>
+      <button class="btn ghost" type="button" data-preset="cyber" data-ids="cy2,cy3">לסמן את המסלול</button>
     </div>
   </div>
 
   <h3>הקורסים</h3>
-  <div class="courses">
+  <p class="swipe-hint">3 קורסים · מחליקים ←</p>
+  <div class="courses slider">
 
     <article class="course" data-course="cy1" data-group="cyber" data-price="49.90" data-hours="16">
       <div class="head">
@@ -381,16 +441,15 @@ footer a{color:var(--muted)}
         </div>
         <label class="pick"><input type="checkbox"> בחרתי</label>
       </div>
-      <div class="price"><span class="now">₪49.90</span><span class="was">₪299.90</span></div>
-      <div class="facts"><span class="he">✓ כתוביות בעברית</span><span>16 שעות</span><span>4.6★ (16,625 דירוגים)</span><span>104,123 לומדים</span><span>עודכן 9/2026</span></div>
+      <div class="price"><span class="now">₪49.90</span><span class="was">₪299.90</span><span class="when">מבצע 21.10</span></div>
+      <div class="facts"><span class="he">✓ כתוביות בעברית</span><span>16 שעות</span><span>4.6★ (16,625)</span><span>עודכן 9/2026</span></div>
       <ul>
         <li>יסודות ואבטחת רשתות</li>
-        <li>סוגי מתקפות, אבטחת אפליקציות ווב, נוזקות</li>
-        <li>תגובה לאירועים, זיהוי חדירות וחקירת רשת</li>
-        <li>ניהול הרשאות (IAM), ניהול סיכונים ורגולציה (GRC)</li>
-        <li>פרק קצר על AI גנרטיבי בסייבר</li>
+        <li>מתקפות, אבטחת אתרים, נוזקות</li>
+        <li>תגובה לאירועים וחקירת רשת</li>
+        <li>הרשאות (IAM), סיכונים ורגולציה (GRC)</li>
       </ul>
-      <div class="closes"><span>מודול 1</span><span>מודול 3</span><span>מודול 4 חלקי</span><span>מודול 9</span></div>
+      <div class="closes"><span>מודול 1</span><span>מודול 3</span><span>מודול 9</span></div>
       <a class="go" href="https://www.udemy.com/course/cybersecurity-from-beginner-to-expert/" target="_blank" rel="noopener">לדף הקורס ב-Udemy ←</a>
     </article>
 
@@ -403,12 +462,12 @@ footer a{color:var(--muted)}
         </div>
         <label class="pick"><input type="checkbox"> בחרתי</label>
       </div>
-      <div class="price"><span class="now">₪79.90</span><span class="was">₪539.90</span></div>
-      <div class="facts"><span class="he">✓ כתוביות בעברית</span><span>15 שעות</span><span>4.6★ (137,767 דירוגים)</span><span>689,046 לומדים</span><span>עודכן 11/2025</span></div>
+      <div class="price"><span class="now">₪79.90</span><span class="was">₪539.90</span><span class="when">מבצע 21.10</span></div>
+      <div class="facts"><span class="he">✓ כתוביות בעברית</span><span>15 שעות</span><span>4.6★ (137,767)</span><span>עודכן 11/2025</span></div>
       <ul>
-        <li>מקימים מעבדת תרגול על המחשב עם Kali Linux</li>
-        <li>תקיפת רשתות, השגת גישה למחשבים, פריצה לאתרים</li>
-        <li>הכול בסביבה סגורה שלנו, ובכל שלב גם איך מתגוננים</li>
+        <li>מקימים מעבדת תרגול עם Kali Linux</li>
+        <li>תקיפת רשתות, השגת גישה, פריצה לאתרים</li>
+        <li>בכל שלב גם איך מתגוננים</li>
       </ul>
       <div class="closes"><span>מודול 3: ההדגמות החיות</span><span>Kali Linux</span></div>
       <div class="tip">מתרגלים רק על המעבדה שמקימים בקורס. תקיפה של מערכת של מישהו אחר בלי רשות היא עבירה.</div>
@@ -424,48 +483,172 @@ footer a{color:var(--muted)}
         </div>
         <label class="pick"><input type="checkbox"> בחרתי</label>
       </div>
-      <div class="price"><span class="now">₪69.90</span><span class="was">₪449.90</span></div>
-      <div class="facts"><span class="he">✓ כתוביות בעברית</span><span>31 שעות</span><span>4.7★ (124,494 דירוגים)</span><span>532,860 לומדים</span><span>עודכן 10/2026</span></div>
+      <div class="price"><span class="now">₪69.90</span><span class="was">₪449.90</span><span class="when">מבצע 21.10</span></div>
+      <div class="facts"><span class="he">✓ כתוביות בעברית</span><span>31 שעות</span><span>4.7★ (124,494)</span><span>עודכן 10/2026</span></div>
       <ul>
-        <li>הקורס המוכר ביותר להסמכת Security+, הסמכת כניסה מקובלת לעולם הסייבר</li>
-        <li>איומים, ארכיטקטורה מאובטחת, ענן ו-IoT, תפעול אבטחה, ניהול סיכונים</li>
+        <li>הקורס המוכר ביותר להסמכת Security+</li>
+        <li>איומים, ענן ו-IoT, תפעול אבטחה, ניהול סיכונים</li>
         <li>כולל מבחן תרגול</li>
       </ul>
       <div class="closes"><span>מודולים 1, 4, 5, 8, 9</span></div>
-      <div class="tip">כדאי רק אם רוצים יותר עומק או לגשת להסמכה. מבחן ההסמכה עצמו נקנה בנפרד ועולה כמה מאות דולרים.</div>
+      <div class="tip">רק אם רוצים יותר עומק או הסמכה. מבחן ההסמכה עצמו נקנה בנפרד ועולה כמה מאות דולרים.</div>
       <a class="go" href="https://www.udemy.com/course/securityplus/" target="_blank" rel="noopener">לדף הקורס ב-Udemy ←</a>
     </article>
   </div>
 
-  <h3>נבדקו ולא נכנסו</h3>
-  <ul class="rejected">
-    <li><b>"יסודות אבטחת המידע"</b> (Din Barzily): הקורס היחיד ב-Udemy שמוקלט בעברית. ₪49.90, אבל רק שעה אחת ו-3 דירוגים. אפשר לחימום, לא כבסיס.</li>
-    <li><span class="ltr">The Complete Certified in Cybersecurity</span> (Thor Pedersen): אין כתוביות בעברית.</li>
-    <li><span class="ltr">Generative AI Risks &amp; Cybersecurity: LLM Security</span>: רלוונטי למודול 7, אבל אין עברית.</li>
-    <li><span class="ltr">Cybersecurity Awareness for Employees in the AI Era</span>: על Deepfake ופישינג, אבל אין עברית.</li>
-    <li><span class="ltr">Complete A.I. &amp; Machine Learning Bootcamp</span> (במסלול ה-AI): אין עברית, ולכן נבחר Machine Learning A-Z.</li>
-  </ul>
+  <details class="fold">
+    <summary>נבדקו ולא נכנסו</summary>
+    <div class="inner"><ul class="rejected">
+      <li><b>"יסודות אבטחת המידע"</b> (Din Barzily): הקורס היחיד שמוקלט בעברית. שעה אחת ו-3 דירוגים. אפשר לחימום, לא כבסיס.</li>
+      <li><span class="ltr">The Complete Certified in Cybersecurity</span>: אין עברית.</li>
+      <li><span class="ltr">Generative AI Risks &amp; Cybersecurity: LLM Security</span>: רלוונטי למודול 7, אבל אין עברית.</li>
+      <li><span class="ltr">Cybersecurity Awareness for Employees in the AI Era</span>: Deepfake ופישינג, אבל אין עברית.</li>
+    </ul></div>
+  </details>
 </section>
 
+<!-- ============ MANAGERS ============ -->
+<section id="mgr">
+  <h2>חלק 3: אסטרטגיית AI למנהלים</h2>
+  <p class="sub">הסילבוס המקורי: "אסטרטגיית AI למנהלים", העברית הכשרת מנהלים, 8 מפגשים, 48 שעות אקדמיות, ימי ראשון 16:00–20:30, מחזור ינואר 2027.</p>
+  <div class="note" style="margin-top:0">החלק המעשי בסילבוס הזה (כלים, סוכנים, Vibe Coding, וידאו ומצגות) מאיר כבר עושה ומלמד. הפער הוא אסטרטגיה ארגונית, רגולציה ותקצוב פרויקטים, ובזה אין ב-Udemy קורס טוב עם עברית.</div>
+
+  <details class="fold" data-open-desktop>
+    <summary>מה כבר יש ומה חסר <span class="counts"><span class="st ok">2 יש</span><span class="st part">4 חלקי</span><span class="st no">1 חסר</span></span></summary>
+    <div class="inner"><div class="mods">
+      <div class="mod"><span class="st ok">יש</span><div class="name">מפגש 1 · יסודות ו"בופה" של כלי AI</div><div class="how">כבר בשימוש יומיומי. למי שמתחיל: קורס 1.</div></div>
+      <div class="mod"><span class="st part">חלקי</span><div class="name">מפגש 2 · אוריינות, אתיקה, NotebookLM</div><div class="how">הכלים כבר יש. שימוש אחראי ובדיקת הטיות: קורס 1.</div></div>
+      <div class="mod"><span class="st ok">יש</span><div class="name">מפגש 3 · Vibe Coding וכלים בלי קוד</div><div class="how">זה בדיוק מה שמאיר מלמד.</div></div>
+      <div class="mod"><span class="st part">חלקי</span><div class="name">מפגש 4 · סוכני AI וניהול מוצר</div><div class="how">סוכנים כבר יש, ותרגול מסודר בקורס 2. ניהול מוצר עם AI: אין קורס עם עברית.</div></div>
+      <div class="mod"><span class="st no">חסר</span><div class="name">מפגש 5 · ממשל, משפט, אתיקה ותקצוב</div><div class="how">רגולציה ותקצוב פרויקטים: אין קורס טוב עם עברית.</div></div>
+      <div class="mod"><span class="st part">חלקי</span><div class="name">מפגש 6 · אסטרטגיה ושרשרת ערך</div><div class="how">סוכן עם Claude כבר יש. אסטרטגיה ארגונית: יש קורס טוב רק באנגלית (ראו "נבדקו ולא נכנסו").</div></div>
+      <div class="mod"><span class="st na">לא רלוונטי</span><div class="name">מפגש 7 · מפגש עם חברות מובילות</div><div class="how">חוויה של הקורס החי, אין לה תחליף מוקלט.</div></div>
+      <div class="mod"><span class="st part">חלקי</span><div class="name">מפגש 8 · סיפור עם AI, מצגות, וידאו</div><div class="how">וידאו ומצגות כבר יש. כתיבת מסמך אסטרטגיה: חסר.</div></div>
+    </div></div>
+  </details>
+
+  <h3>בוחרים מסלול</h3>
+  <div class="plans slider">
+    <div class="plan rec">
+      <div class="tag">מומלץ: קצר מאוד</div>
+      <div class="t">מסלול מינימלי</div>
+      <div class="sum">₪169.80 · כ-8 שעות</div>
+      <div class="what">קורסים 1 ו-2. בסיס ושימוש אחראי, ואחריו סוכנים בפועל.</div>
+      <button class="btn" type="button" data-preset="mgr" data-ids="m1,m2">לסמן את המסלול</button>
+    </div>
+    <div class="plan">
+      <div class="tag">עם יותר רקע</div>
+      <div class="t">מסלול מורחב</div>
+      <div class="sum">₪429.70 · כ-11 שעות</div>
+      <div class="what">שלושת הקורסים. קורס 3 מוסיף תמונה רחבה של עולם ה-AI. במבצע יוצא הרבה פחות.</div>
+      <button class="btn ghost" type="button" data-preset="mgr" data-ids="m1,m2,m3">לסמן את המסלול</button>
+    </div>
+  </div>
+
+  <h3>הקורסים</h3>
+  <p class="swipe-hint">3 קורסים · מחליקים ←</p>
+  <div class="courses slider">
+
+    <article class="course" data-course="m1" data-group="mgr" data-price="89.90" data-hours="1">
+      <div class="head">
+        <div>
+          <div class="num">קורס 1 · מתחילים כאן</div>
+          <div class="title"><span class="ltr">AI Fundamentals</span></div>
+          <div class="by">Google</div>
+        </div>
+        <label class="pick"><input type="checkbox"> בחרתי</label>
+      </div>
+      <div class="price"><span class="now">₪89.90</span><span class="when">מחיר 22.10, בלי מבצע</span></div>
+      <div class="facts"><span class="he">✓ כתוביות בעברית</span><span>שעה ורבע</span><span>4.6★ (639)</span><span>עודכן 8/2026</span></div>
+      <ul>
+        <li>מושגי יסוד ב-AI גנרטיבי</li>
+        <li>מסגרת מסודרת לכתיבת פרומפטים לעבודה</li>
+        <li>בדיקת תוצרים: דיוק, הטיות ושימוש אחראי</li>
+        <li>איך מזהים איפה בעבודה AI נותן הכי הרבה ערך</li>
+      </ul>
+      <div class="closes"><span>מפגש 1</span><span>מפגש 2</span></div>
+      <div class="tip">קורס של Google עצמה, ונגמר בערב אחד. נקודת פתיחה טובה למי שעוד לא עובד עם AI ביומיום.</div>
+      <a class="go" href="https://www.udemy.com/course/google-ai-fundamentals/" target="_blank" rel="noopener">לדף הקורס ב-Udemy ←</a>
+    </article>
+
+    <article class="course" data-course="m2" data-group="mgr" data-price="79.90" data-hours="7">
+      <div class="head">
+        <div>
+          <div class="num">קורס 2 · סוכנים בפועל</div>
+          <div class="title"><span class="ltr">AI Agents &amp; Workflows - The Practical Guide</span></div>
+          <div class="by">Maximilian Schwarzmüller</div>
+        </div>
+        <label class="pick"><input type="checkbox"> בחרתי</label>
+      </div>
+      <div class="price"><span class="now">₪79.90</span><span class="when">מחיר 22.10, בלי מבצע</span></div>
+      <div class="facts"><span class="he">✓ כתוביות בעברית</span><span>7 שעות</span><span>4.5★ (14,813)</span><span>עודכן 9/2026</span></div>
+      <ul>
+        <li>איך משתמשים בסוכנים ומכוונים אותם</li>
+        <li>בונים תהליכי עבודה ואפליקציות עם AI</li>
+        <li>בונים סוכנים, כולל CrewAI</li>
+      </ul>
+      <div class="closes"><span>מפגש 3</span><span>מפגש 4</span><span>מפגש 6</span></div>
+      <div class="tip">חופף חלקית לקורס 1 בחלק ה-AI. מי שלוקח את שניהם יכול לדלג כאן על פרק CrewAI.</div>
+      <a class="go" href="https://www.udemy.com/course/ai-agents-workflows-the-practical-guide/" target="_blank" rel="noopener">לדף הקורס ב-Udemy ←</a>
+    </article>
+
+    <article class="course" data-course="m3" data-group="mgr" data-price="259.90" data-hours="3">
+      <div class="head">
+        <div>
+          <div class="num">קורס 3 · רשות</div>
+          <div class="title"><span class="ltr">Intro to AI: A Beginner's Guide to Artificial Intelligence</span></div>
+          <div class="by">365 Careers</div>
+        </div>
+        <label class="pick"><input type="checkbox"> בחרתי</label>
+      </div>
+      <div class="price"><span class="now">₪259.90</span><span class="when">מחיר 22.10, בלי מבצע</span></div>
+      <div class="facts"><span class="he">✓ כתוביות בעברית</span><span>2.5 שעות</span><span>4.5★ (36,416)</span><span>עודכן 10/2026</span></div>
+      <ul>
+        <li>למה נתונים הם הבסיס של כל מערכת AI</li>
+        <li>הטכניקות והתחומים המרכזיים ב-AI</li>
+        <li>AI גנרטיבי והאתגרים המעשיים שלו</li>
+        <li>ה"סטאק" הטכנולוגי והתפקידים בתחום</li>
+      </ul>
+      <div class="closes"><span>מפגש 1</span><span>מפגש 5 חלקי</span></div>
+      <div class="tip">המחיר היום גבוה. מחכים למבצע.</div>
+      <a class="go" href="https://www.udemy.com/course/intro-to-ai-a-beginners-guide-to-artificial-intelligence/" target="_blank" rel="noopener">לדף הקורס ב-Udemy ←</a>
+    </article>
+  </div>
+
+  <details class="fold">
+    <summary>נבדקו ולא נכנסו</summary>
+    <div class="inner"><ul class="rejected">
+      <li><span class="ltr">Generative AI for Leaders: Strategy &amp; Adoption</span>: הכי קרוב לנושא האסטרטגיה, 3.5 שעות, 4.6★. <b>אין עברית.</b> כדאי רק אם מוכנים לאנגלית.</li>
+      <li><span class="ltr">The AI Playbook for CEOs, Business Owners and Leaders</span>: 4 שעות. אין עברית.</li>
+      <li><span class="ltr">AI for Business Leaders</span> ו-<span class="ltr">Generative AI for Leaders &amp; Business Professionals</span>: אין עברית.</li>
+      <li><span class="ltr">ChatGPT: Complete ChatGPT Course For Work (Ethically)</span>: יש עברית, אבל 18 שעות וממוקד רק ב-ChatGPT.</li>
+      <li><span class="ltr">The Complete AI Guide</span>: יש עברית, אבל 43 שעות.</li>
+      <li>קורסי ממשל ורגולציה עם עברית: קיימים, אבל חדשים ובלי דירוגים.</li>
+      <li>קורסי AI שמוקלטים בעברית: ישנים, על ChatGPT בלבד, עם מעט דירוגים.</li>
+    </ul></div>
+  </details>
+</section>
+
+<!-- ============ HEBREW ============ -->
 <section id="hebrew">
   <h2>איך לומדים בעברית</h2>
-  <p class="sub">המרצים מדברים אנגלית. Udemy מתרגמת את הכתוביות לעברית אוטומטית (מסומן "Hebrew [Auto]"). התרגום מובן ברוב המקרים, אבל מונחים טכניים יוצאים לפעמים מוזרים.</p>
+  <p class="sub">המרצים מדברים אנגלית. Udemy מתרגמת את הכתוביות לעברית אוטומטית (מסומן "Hebrew [Auto]"). התרגום מובן ברוב המקרים, אבל מונחים טכניים לפעמים יוצאים מוזרים.</p>
   <div class="card">
     <h3 style="margin-top:0">הפעלת כתוביות בעברית</h3>
     <ol class="steps">
       <li>פותחים שיעור כלשהו בקורס.</li>
-      <li>בתחתית הנגן לוחצים על הכפתור <b>CC</b> (או על סמל ההגדרות ⚙).</li>
-      <li>בוחרים <b>Hebrew [Auto]</b>. מעכשיו זה נשמר לכל הקורס.</li>
-      <li>אם המילה בעברית לא ברורה, מסתכלים על השם באנגלית שמופיע על המסך.</li>
+      <li>בתחתית הנגן לוחצים על <b>CC</b> (או על ⚙).</li>
+      <li>בוחרים <b>Hebrew [Auto]</b>. זה נשמר לכל הקורס.</li>
+      <li>מילה לא ברורה? מסתכלים על המונח באנגלית שעל המסך.</li>
     </ol>
   </div>
   <h3>טיפים ללמידה בזוג</h3>
-  <ul>
+  <ul class="tips">
     <li><b>כל אחד קונה בחשבון שלו.</b> שיתוף חשבון אסור לפי תנאי Udemy.</li>
-    <li><b>אפשר לנסות בלי סיכון.</b> יש החזר כספי מלא תוך 30 יום אם הקורס לא מתאים.</li>
-    <li><b>קצב קבוע.</b> 5 שעות וידאו בשבוע, ומפגש משותף אחד בשבוע לתרגל ביחד את מה שנלמד.</li>
-    <li><b>Claude ליד הנגן.</b> כשמשהו לא ברור, מבקשים מ-Claude להסביר אותו בעברית, עם דוגמה.</li>
-    <li><b>אפשר גם בלי אינטרנט.</b> באפליקציה של Udemy בטלפון יש הורדה לצפייה בלי חיבור.</li>
+    <li><b>בלי סיכון:</b> החזר כספי מלא תוך 30 יום אם הקורס לא מתאים.</li>
+    <li><b>קצב קבוע:</b> 5 שעות וידאו בשבוע, ומפגש משותף אחד בשבוע לתרגל ביחד.</li>
+    <li><b>Claude ליד הנגן:</b> כשמשהו לא ברור, מבקשים הסבר בעברית עם דוגמה.</li>
+    <li><b>בלי אינטרנט:</b> באפליקציה של Udemy בטלפון אפשר להוריד שיעורים לצפייה.</li>
   </ul>
 </section>
 
@@ -473,8 +656,8 @@ footer a{color:var(--muted)}
 
 <footer>
   <div class="wrap">
-    <p>הנתונים נאספו מדפי הקורסים ב-Udemy ב-21.10.2026: מחיר בשקלים, דירוג, אורך ושפות כתוביות. מחירים ב-Udemy משתנים כל הזמן, אז בודקים שוב לפני שקונים.</p>
-    <p>מקורות: הסילבוס "AI Engineers" של האקדמיה להייטק בעברית, והסילבוס "Cyber Expert" של העברית הכשרת מנהלים.</p>
+    <p>הנתונים נאספו מדפי הקורסים ב-Udemy ב-21–22.10.2026: מחיר בשקלים, דירוג, אורך ושפות כתוביות. מחירים ב-Udemy משתנים כל הזמן, אז בודקים שוב לפני קנייה.</p>
+    <p>מקורות: הסילבוסים "AI Engineers", "Cyber Expert" ו"אסטרטגיית AI למנהלים" של האוניברסיטה העברית.</p>
   </div>
 </footer>
 
@@ -490,16 +673,17 @@ footer a{color:var(--muted)}
 
 <script>
 (function(){
-  var KEY='study-plan-picks-v1';
+  /* ---------- course picks ---------- */
+  var KEY='study-plan-picks-v2';
   var cards=[].slice.call(document.querySelectorAll('[data-course]'));
-  function boxes(){return cards.map(function(c){return c.querySelector('input[type=checkbox]')})}
+  function inp(c){return c.querySelector('input[type=checkbox]')}
   function save(){
-    try{localStorage.setItem(KEY,JSON.stringify(cards.filter(function(c){return c.querySelector('input').checked}).map(function(c){return c.dataset.course})))}catch(e){}
+    try{localStorage.setItem(KEY,JSON.stringify(cards.filter(function(c){return inp(c).checked}).map(function(c){return c.dataset.course})))}catch(e){}
   }
   function update(){
     var n=0,p=0,h=0;
     cards.forEach(function(c){
-      var on=c.querySelector('input').checked;
+      var on=inp(c).checked;
       c.classList.toggle('picked',on);
       if(on){n++;p+=parseFloat(c.dataset.price);h+=parseFloat(c.dataset.hours)}
     });
@@ -509,18 +693,77 @@ footer a{color:var(--muted)}
   }
   var saved=null;
   try{saved=JSON.parse(localStorage.getItem(KEY)||'null')}catch(e){saved=null}
-  var initial=Array.isArray(saved)?saved:['ai1','ai2','cy1','cy2'];
-  cards.forEach(function(c){c.querySelector('input').checked=initial.indexOf(c.dataset.course)>-1});
-  boxes().forEach(function(b){b.addEventListener('change',function(){update();save()})});
+  var initial=Array.isArray(saved)?saved:['ai1','ai2','cy1','cy2','m1','m2'];
+  cards.forEach(function(c){inp(c).checked=initial.indexOf(c.dataset.course)>-1});
+  cards.forEach(function(c){inp(c).addEventListener('change',function(){update();save()})});
   [].slice.call(document.querySelectorAll('[data-preset]')).forEach(function(btn){
     btn.addEventListener('click',function(){
       var g=btn.dataset.preset, ids=btn.dataset.ids.split(',');
-      cards.forEach(function(c){if(c.dataset.group===g){c.querySelector('input').checked=ids.indexOf(c.dataset.course)>-1}});
+      cards.forEach(function(c){if(c.dataset.group===g){inp(c).checked=ids.indexOf(c.dataset.course)>-1}});
       update();save();
     });
   });
-  document.getElementById('clearAll').addEventListener('click',function(){boxes().forEach(function(b){b.checked=false});update();save()});
+  document.getElementById('clearAll').addEventListener('click',function(){cards.forEach(function(c){inp(c).checked=false});update();save()});
   update();
+
+  /* ---------- open overview panels on wide screens ---------- */
+  if(window.matchMedia('(min-width:761px)').matches){
+    [].slice.call(document.querySelectorAll('details[data-open-desktop]')).forEach(function(d){d.open=true});
+  }
+
+  /* ---------- RTL swipe sliders (phones) ---------- */
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  [].slice.call(document.querySelectorAll('.slider')).forEach(function(sl){
+    var items=[].slice.call(sl.children);
+    if(items.length<2)return;
+    var nav=document.createElement('div');
+    nav.className='slider-nav';
+    nav.innerHTML='<button class="arrow prev" type="button" aria-label="הקודם">→</button>'+
+      '<div class="mid"><div class="dots"></div><div class="count" aria-live="polite"></div></div>'+
+      '<button class="arrow next" type="button" aria-label="הבא">←</button>';
+    sl.parentNode.insertBefore(nav,sl.nextSibling);
+    var dots=nav.querySelector('.dots'), count=nav.querySelector('.count');
+    var prev=nav.querySelector('.prev'), next=nav.querySelector('.next');
+    items.forEach(function(it,i){
+      var b=document.createElement('button');
+      b.type='button'; b.setAttribute('aria-label','מעבר לכרטיס '+(i+1));
+      b.addEventListener('click',function(){go(i)});
+      dots.appendChild(b);
+    });
+    function edge(){var cs=getComputedStyle(sl);return sl.getBoundingClientRect().right-(parseFloat(cs.paddingRight)||0)}
+    function cur(){
+      var e=edge(),best=0,bd=Infinity;
+      items.forEach(function(it,i){var d=Math.abs(it.getBoundingClientRect().right-e);if(d<bd){bd=d;best=i}});
+      return best;
+    }
+    function go(i){
+      i=Math.max(0,Math.min(items.length-1,i));
+      sl.scrollBy({left:items[i].getBoundingClientRect().right-edge(),behavior:reduce?'auto':'smooth'});
+    }
+    function paint(){
+      var i=cur();
+      [].slice.call(dots.children).forEach(function(d,k){d.setAttribute('aria-current',k===i?'true':'false')});
+      count.textContent=(i+1)+' מתוך '+items.length;
+      prev.disabled=i===0; next.disabled=i===items.length-1;
+    }
+    prev.addEventListener('click',function(){go(cur()-1)});
+    next.addEventListener('click',function(){go(cur()+1)});
+    var raf=0;
+    sl.addEventListener('scroll',function(){if(!raf){raf=requestAnimationFrame(function(){raf=0;paint()})}},{passive:true});
+    window.addEventListener('resize',paint);
+    paint();
+  });
+
+  /* ---------- highlight current section in nav ---------- */
+  var links=[].slice.call(document.querySelectorAll('nav.tabs a'));
+  var secs=links.map(function(a){return document.querySelector(a.getAttribute('href'))}).filter(Boolean);
+  function spy(){
+    var y=window.scrollY+90, idx=0;
+    secs.forEach(function(s,i){if(s.offsetTop<=y)idx=i});
+    links.forEach(function(a,i){a.setAttribute('aria-current',i===idx?'true':'false')});
+  }
+  window.addEventListener('scroll',function(){requestAnimationFrame(spy)},{passive:true});
+  spy();
 })();
 </script>
 </body>
